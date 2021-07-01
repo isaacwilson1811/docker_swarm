@@ -1,6 +1,6 @@
 FROM node:16.3.0
 LABEL maintainer="Isaac Wilson -MTECH Student"
-LABEL description="Just a test for class, simple user manager app"
+LABEL description="Just a test for class, simple user manager express app"
 LABEL cohort="12"
 LABEL animal="human"
 # Container working dir will be /app

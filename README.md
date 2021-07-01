@@ -2,21 +2,35 @@
 ## Step 1.
 >### Clone Repo
 >```
->git clone https://github.com/isaacwilson1811/docker_lab1.git
+>git clone https://github.com/isaacwilson1811/docker_swarm.git
 >```
 >### Change to dir
 >```
->cd docker_lab1
+>cd docker_swarm
 >```
 ## Step 2.
->### Build a docker image
+>### Build the image
 >```
->docker build -t isaac_lab1:1.0 .
+>docker build -t isaac_image:1.0 .
 >```
 ## Step 3.
->### Run a container from the image
+>### Create Docker Swarm Stack / Stack has Service A and Service B
 >```
->docker run -d --rm --name isaac_app -p 3000:3000 isaac_lab1:1.0
+>docker stack deploy -c docker-compose.yaml mystack
 >```
 ## Step 4.
-### Test the express app by opening http://localhost:3000 in your browser
+>### Test that the express app can be reached from http://localhost:3000 in your browser
+## Step 5.
+>### Test Docker Service Commands.
+>>#### Scale out service A to 7 instances.
+>>```
+>>docker service scale mystack_usermanA=7
+>>```
+>>### Scale in service A to 2 instances
+>>```
+>>docker service scale mystack_usermanA=2
+>>```
+>>### Remove stack and delete containers
+>>```
+>>docker stack rm mystack
+>>```
